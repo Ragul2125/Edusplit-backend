@@ -1,0 +1,191 @@
+[
+  {
+    "modelmarkbox": [
+      {
+        "question_number": 1,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 2,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 3,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 4,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 5,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 6,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 7,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 8,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 9,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 10,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 11,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 12,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 13,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 14,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 15,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 16,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 17,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 18,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 19,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 20,
+        "marks_obtained": null,
+        "text": "normal"
+      }
+    ],
+    "original_image": "aadesh_model_mark_box.jpg"
+  },
+  {
+    "catmarkbox": [
+      {
+        "question_number": 1,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 2,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 3,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 4,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 5,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 6,
+        "marks_obtained": 5,
+        "text": "normal"
+      },
+      {
+        "question_number": 7,
+        "marks_obtained": 5,
+        "text": "normal"
+      },
+      {
+        "question_number": 8,
+        "marks_obtained": 4,
+        "text": "normal"
+      },
+      {
+        "question_number": 9,
+        "marks_obtained": 4,
+        "text": "normal"
+      },
+      {
+        "question_number": 10,
+        "marks_obtained": 8,
+        "text": "normal"
+      },
+      {
+        "question_number": 11,
+        "marks_obtained": 4,
+        "text": "normal"
+      },
+      {
+        "question_number": 12,
+        "marks_obtained": 12,
+        "text": "normal"
+      }
+    ],
+    "original_image": "aadesh_cat_mark_box.jpg"
+  },
+  {
+    "totalmarkbox": {
+      "total_marks": 100
+    },
+    "original_image": "aadesh_total_mark_box.jpg"
+  },
+  {
+    "studentdetailsbox": {
+      "name": "Aadesh. S",
+      "register_number": "22UAIOO1",
+      "course_title": "IoT Systems and analytics",
+      "year": "IV",
+      "semester": "7",
+      "section": "A",
+      "branch": "AI + DS",
+      "date": "25/7/25"
+    },
+    "original_image": "aadesh_student_details_box.jpg"
+  }
+]
