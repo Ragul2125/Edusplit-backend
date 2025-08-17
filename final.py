@@ -8,7 +8,12 @@ import re
 import google.generativeai as genai
 import tempfile
 import os
+from flask_cors import CORS
 
+# ==== FLASK APP ====
+app = Flask(__name__)
+
+CORS(app)
 # ==== CONFIG ====
 YOLO_MODEL_PATH = "finetunedYolo.pt"
 GEMINI_API_KEY = "AIzaSyBUNiKT6DGuEpIJBBLuj3NNVedb061EEsg"
@@ -141,27 +146,36 @@ def process_single_image(image_path: str):
 
     return output_data
 
-# ==== FLASK APP ====
-app = Flask(__name__)
 
-@app.route("/process", methods=["POST","GET"])
+
+@app.route("/process", methods=["POST", "GET"])
 def process_images():
-    if not request.is_json or "images" not in request.json:
-        return jsonify({"error": "JSON with 'images' list required"}), 400
+    print(vars(request))
+    if request.method == "GET":
+        return jsonify({"message": "Send a POST request with images"}), 200
 
-    images_list = request.json["images"]
-    if not isinstance(images_list, list) or not images_list:
-        return jsonify({"error": "'images' should be a non-empty list"}), 400
+    # Expect multipart/form-data
+    if "images" not in request.files:
+        return jsonify({"error": "No 'images' files uploaded"}), 400
+    
+    uploaded_files = request.files.getlist("images")
+    print("file detail " , uploaded_files)
+    if not uploaded_files:
+        return jsonify({"error": "No files found in 'images'"}), 400
 
     final_results = []
+    temp_dir = tempfile.mkdtemp()
 
-    for img_path in images_list:
-        if not os.path.exists(img_path):
-            final_results.append({"image": img_path, "error": "File not found"})
+    for file in uploaded_files:
+        file_path = os.path.join(temp_dir, file.filename)
+        file.save(file_path)
+
+        if not os.path.exists(file_path):
+            final_results.append({"image": file.filename, "error": "File save failed"})
             continue
 
-        result = process_single_image(img_path)
-        final_results.append({"image": img_path, "data": result})
+        result = process_single_image(file_path)
+        final_results.append({"image": file.filename, "data": result})
 
     return jsonify({"results": final_results})
 
