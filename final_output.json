@@ -89,103 +89,216 @@
       {
         "question_number": 18,
         "marks_obtained": null,
-        "text": "normal"
+        "text": "overwritten"
       },
       {
         "question_number": 19,
         "marks_obtained": null,
-        "text": "normal"
+        "text": "overwritten"
       },
       {
         "question_number": 20,
         "marks_obtained": null,
-        "text": "normal"
+        "text": "overwritten"
       }
     ],
-    "original_image": "aadesh_model_mark_box.jpg"
+    "original_image": "hariniA_model_mark_box.jpg"
   },
   {
     "catmarkbox": [
       {
+        "Name": "unknown",
+        "registerno": "unknown",
+        "marks": {
+          "1": "2",
+          "2": "2",
+          "3": "2",
+          "4": "2",
+          "5": "2",
+          "totalA": "10",
+          "6": "4",
+          "7": "4",
+          "8": "4",
+          "9": "4",
+          "totalB": "16",
+          "10": "9",
+          "11": "0",
+          "12": "9",
+          "totalC": "18",
+          "totalA+B+C": "44"
+        }
+      }
+    ],
+    "original_image": "hariniA_cat_mark_box.jpg"
+  },
+  {
+    "totalmarkbox": {
+      "total_marks": 100
+    },
+    "original_image": "hariniA_total_mark_box.jpg"
+  },
+  {
+    "studentdetailsbox": {
+      "name": "A.Harini",
+      "register_number": "23UA ID 36",
+      "course_title": "Data Visualization",
+      "year": "III",
+      "semester": "V",
+      "section": "A",
+      "branch": "AI & DS",
+      "date": "28.7.25"
+    },
+    "original_image": "hariniA_student_details_box.jpg"
+  },
+  {
+    "modelmarkbox": [
+      {
         "question_number": 1,
-        "marks_obtained": 2,
+        "marks_obtained": null,
         "text": "normal"
       },
       {
         "question_number": 2,
-        "marks_obtained": 2,
+        "marks_obtained": 20,
         "text": "normal"
       },
       {
         "question_number": 3,
-        "marks_obtained": 2,
+        "marks_obtained": 9,
         "text": "normal"
       },
       {
         "question_number": 4,
-        "marks_obtained": 2,
+        "marks_obtained": null,
         "text": "normal"
       },
       {
         "question_number": 5,
-        "marks_obtained": 2,
+        "marks_obtained": null,
         "text": "normal"
       },
       {
         "question_number": 6,
-        "marks_obtained": 5,
+        "marks_obtained": null,
         "text": "normal"
       },
       {
         "question_number": 7,
-        "marks_obtained": 5,
+        "marks_obtained": null,
         "text": "normal"
       },
       {
         "question_number": 8,
-        "marks_obtained": 4,
+        "marks_obtained": null,
         "text": "normal"
       },
       {
         "question_number": 9,
-        "marks_obtained": 4,
+        "marks_obtained": null,
         "text": "normal"
       },
       {
         "question_number": 10,
-        "marks_obtained": 8,
+        "marks_obtained": null,
         "text": "normal"
       },
       {
         "question_number": 11,
-        "marks_obtained": 4,
+        "marks_obtained": 11,
         "text": "normal"
       },
       {
         "question_number": 12,
         "marks_obtained": 12,
         "text": "normal"
+      },
+      {
+        "question_number": 13,
+        "marks_obtained": 13,
+        "text": "normal"
+      },
+      {
+        "question_number": 14,
+        "marks_obtained": 14,
+        "text": "normal"
+      },
+      {
+        "question_number": 15,
+        "marks_obtained": 15,
+        "text": "normal"
+      },
+      {
+        "question_number": 16,
+        "marks_obtained": 16,
+        "text": "normal"
+      },
+      {
+        "question_number": 17,
+        "marks_obtained": 17,
+        "text": "normal"
+      },
+      {
+        "question_number": 18,
+        "marks_obtained": 18,
+        "text": "normal"
+      },
+      {
+        "question_number": 19,
+        "marks_obtained": 19,
+        "text": "normal"
+      },
+      {
+        "question_number": 20,
+        "marks_obtained": 20,
+        "text": "normal"
       }
     ],
-    "original_image": "aadesh_cat_mark_box.jpg"
+    "original_image": "hariniP_model_mark_box.jpg"
+  },
+  {
+    "catmarkbox": [
+      {
+        "Name": "unknown",
+        "registerno": "unknown",
+        "marks": {
+          "1": "2",
+          "2": "2",
+          "3": "2",
+          "4": "2",
+          "5": "2",
+          "totalA": "10",
+          "6": "4",
+          "7": "4",
+          "8": "3",
+          "9": "3",
+          "totalB": "14",
+          "10": "9",
+          "11": "9",
+          "12": "9",
+          "totalC": "27",
+          "totalA+B+C": "51"
+        }
+      }
+    ],
+    "original_image": "hariniP_cat_mark_box.jpg"
   },
   {
     "totalmarkbox": {
-      "total_marks": 100
+      "total_marks": "84/100"
     },
-    "original_image": "aadesh_total_mark_box.jpg"
+    "original_image": "hariniP_total_mark_box.jpg"
   },
   {
     "studentdetailsbox": {
-      "name": "Aadesh. S",
-      "register_number": "22UAIOO1",
-      "course_title": "IoT Systems and analytics",
-      "year": "IV",
-      "semester": "7",
+      "name": "P. HARINI",
+      "register_number": "23UA1038",
+      "course_title": "DATA VISUALIZATION",
+      "year": "III",
+      "semester": "V",
       "section": "A",
-      "branch": "AI + DS",
-      "date": "25/7/25"
+      "branch": "AI & DS",
+      "date": "28.07.25"
     },
-    "original_image": "aadesh_student_details_box.jpg"
+    "original_image": "hariniP_student_details_box.jpg"
   }
 ]
