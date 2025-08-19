@@ -1,4 +1,4 @@
-#process multiple marks like cat, model , total
+# #process multiple marks like cat, model , total
 
 
 import os
@@ -194,7 +194,7 @@ def processExamImages(crop_paths):
     return exam_result
 
 
-#calculate only cat mark and student details
+# #calculate only cat mark and student details
 # import os
 # import json
 # import re
@@ -346,233 +346,308 @@ def processExamImages(crop_paths):
 # # ==== USAGE EXAMPLE ====
 # if __name__ == "__main__":
 #     result = processExamImages([
-#         "my_crops/aadesh_student_details_box.jpg",
-#         "my_crops/aadesh_cat_mark_box.jpg",
-#         "my_crops/aadesh_model_mark_box.jpg",
-#         "my_crops/aadesh_total_mark_box.jpg"
+#         "my_crops/abirami_student_details_box.jpg",
+#         "my_crops/abirami_cat_mark_box.jpg",
+#         "my_crops/abirami_model_mark_box.jpg",
+#         "my_crops/abirami_total_mark_box.jpg",
+#         "my_crops/abinayasri_student_details_box.jpg",
+#         "my_crops/abinayasri_cat_mark_box.jpg",
+#         "my_crops/abinayasri_model_mark_box.jpg",
+#         "my_crops/abinayasri_total_mark_box.jpg",
 #     ])
 #     print(json.dumps(result, indent=2))
 
 
-
+  
 # optimized code for extracting the cat marks\
 
 
 
-import os
-import json
-from pathlib import Path
-import google.generativeai as genai
-import re
-from PIL import Image
-# 1. Configure your API key
-genai.configure(api_key="AIzaSyBUNiKT6DGuEpIJBBLuj3NNVedb061EEsg")
+# import os
+# import json
+# from pathlib import Path
+# import google.generativeai as genai
+# import re
+# from PIL import Image
+# import os
+# from collections import defaultdict
+# # 1. Configure your API key
+# genai.configure(api_key="AIzaSyBUNiKT6DGuEpIJBBLuj3NNVedb061EEsg")
 
-# 2. Load image using Pillow
-# img_path = "data/abieshwar.jpg"
-# img = Image.open(img_path)
+# # 2. Load image using Pillow
+# # img_path = "data/abieshwar.jpg"
+# # img = Image.open(img_path)
 
-# 3. Initialize a Gemini Vision-capable model
-model = genai.GenerativeModel(model_name="gemini-2.5-flash")  # or another vision-enabled model
+# # 3. Initialize a Gemini Vision-capable model
+# model = genai.GenerativeModel(model_name="gemini-2.5-flash")  # or another vision-enabled model
 
-# # 4. Send both prompt and image to the model
-# prompt = """You are given OCR text from an exam paper. Extract only the following details for each question:
+# # # 4. Send both prompt and image to the model
+# # prompt = """You are given OCR text from an exam paper. Extract only the following details for each question:
 
-# question_number – the number of the question (e.g., 1, 2, 3).
+# # question_number – the number of the question (e.g., 1, 2, 3).
 
-# marks_obtained – the marks scored for that question (numeric, can be decimal if applicable).
+# # marks_obtained – the marks scored for that question (numeric, can be decimal if applicable).
+# # If a value is missing or unreadable, put null.
+
+# # Additionally, determine if the marks or question number are overwritten or unclear:
+
+# # If overwritten/unclear → set "text": "overwritten".
+
+# # If clearly written → set "text": "normal".
+
+# # Output a JSON array where each object has:
+
+
+# # {
+# #   "question_number": number | null,
+# #   "marks_obtained": number | null,
+# #   "text": "overwritten" | "normal"
+# # }
+# # Do not include any other information in the output.
+# # Be precise and ensure mapping between question_number and marks_obtained is correct.
+
+# # If the value is null , put text as normal. if it is overwritten , but it as overwritten"""
+# # response = model.generate_content([prompt, img])
+
+# # # 5. Print the OCR-like extracted text
+# # print("Extracted Text:\n", response.text)
+
+# # Folder paths
+# input_dir = Path("output")
+# output_json = Path("json/final_output.json")
+# output_json.parent.mkdir(exist_ok=True)
+
+# # ==== PROMPTS ====
+# PROMPTS = {
+#     "studentdetailsbox": """You are given OCR text from a student information section.
+# Extract the following details:
+# {
+#   "name": string | null,
+#   "register_number": string | null,
+#   "course_title": string | null,
+#   "year": string | null,
+#   "semester": string | null,
+#   "section": string | null,
+#   "branch": string | null,
+#   "date": string | null
+# }
 # If a value is missing or unreadable, put null.
+# Do not include any other keys or text. Return only a valid JSON object.""",
 
-# Additionally, determine if the marks or question number are overwritten or unclear:
-
-# If overwritten/unclear → set "text": "overwritten".
-
-# If clearly written → set "text": "normal".
-
-# Output a JSON array where each object has:
-
-
+#     "catmarkbox": """You are given OCR text from a marks table for a category.
+# Extract for each question:
 # {
 #   "question_number": number | null,
 #   "marks_obtained": number | null,
 #   "text": "overwritten" | "normal"
 # }
-# Do not include any other information in the output.
-# Be precise and ensure mapping between question_number and marks_obtained is correct.
+# If marks or question_number are missing, set text as "normal".
+# Return only a JSON array with one object per question.""",
 
-# If the value is null , put text as normal. if it is overwritten , but it as overwritten"""
-# response = model.generate_content([prompt, img])
+#     "modelmarkbox": """You are given OCR text from a marks table with multiple questions.
+# Extract for each question:
+# {
+#   "question_number": number | null,
+#   "marks_obtained": number | null,
+#   "text": "overwritten" | "normal"
+# }
+# If marks or question_number are missing, set text as "normal".
+# Return only a JSON array with one object per question.""",
 
-# # 5. Print the OCR-like extracted text
-# print("Extracted Text:\n", response.text)
+#     "totalmarkbox": """You are given OCR text showing the total marks.
+# Extract only:
+# {
+#   "total_marks": number / 100 | null
+# }
+# Return a valid JSON object with this field only."""
+# }
 
-# Folder paths
-input_dir = Path("output")
-output_json = Path("json/final_output.json")
-output_json.parent.mkdir(exist_ok=True)
+# # ==== TYPE DETECTION ====
+# TYPE_KEYWORDS = {
+#     "student_details_box": "studentdetailsbox",
+#     "cat_mark_box": "catmarkbox",
+#     "model_mark_box": "modelmarkbox",
+#     "total_mark_box": "totalmarkbox"
+# }
 
-# ==== PROMPTS ====
-PROMPTS = {
-    "studentdetailsbox": """You are given OCR text from a student information section.
-Extract the following details:
-{
-  "name": string | null,
-  "register_number": string | null,
-  "course_title": string | null,
-  "year": string | null,
-  "semester": string | null,
-  "section": string | null,
-  "branch": string | null,
-  "date": string | null
-}
-If a value is missing or unreadable, put null.
-Do not include any other keys or text. Return only a valid JSON object.""",
+# # ==== CLEANING FUNCTION ====
+# def clean_json_text(text: str) -> str:
+#     """
+#     Removes ```json fences and trims whitespace so json.loads can parse it.
+#     """
+#     text = text.strip()
+#     # Remove ```json and ``` markers if present
+#     text = re.sub(r"^```(?:json)?\s*", "", text)
+#     text = re.sub(r"\s*```$", "", text)
+#     return text.strip()
 
-    "catmarkbox": """You are given OCR text from a marks table for a category.
-Extract for each question:
-{
-  "question_number": number | null,
-  "marks_obtained": number | null,
-  "text": "overwritten" | "normal"
-}
-If marks or question_number are missing, set text as "normal".
-Return only a JSON array with one object per question.""",
+# # ==== MAIN STORAGE ====
+# # final_data = {}
 
-    "modelmarkbox": """You are given OCR text from a marks table with multiple questions.
-Extract for each question:
-{
-  "question_number": number | null,
-  "marks_obtained": number | null,
-  "text": "overwritten" | "normal"
-}
-If marks or question_number are missing, set text as "normal".
-Return only a JSON array with one object per question.""",
+# # # ==== MAIN LOOP ====
+# # for img_path in input_dir.glob("*.jpg"):
+# #     img_type = None
+# #     for keyword, type_key in TYPE_KEYWORDS.items():
+# #         if keyword in img_path.stem.lower():
+# #             img_type = type_key
+# #             break
 
-    "totalmarkbox": """You are given OCR text showing the total marks.
-Extract only:
-{
-  "total_marks": number / 100 | null
-}
-Return a valid JSON object with this field only."""
-}
+# #     if img_type is None:
+# #         print(f"⚠ No matching prompt for {img_path.name}, skipping.")
+# #         continue
 
-# ==== TYPE DETECTION ====
-TYPE_KEYWORDS = {
-    "student_details_box": "studentdetailsbox",
-    "cat_mark_box": "catmarkbox",
-    "model_mark_box": "modelmarkbox",
-    "total_mark_box": "totalmarkbox"
-}
+# #     print(f"🔍 Processing {img_path.name} as {img_type}")
 
-# ==== CLEANING FUNCTION ====
-def clean_json_text(text: str) -> str:
-    """
-    Removes ```json fences and trims whitespace so json.loads can parse it.
-    """
-    text = text.strip()
-    # Remove ```json and ``` markers if present
-    text = re.sub(r"^```(?:json)?\s*", "", text)
-    text = re.sub(r"\s*```$", "", text)
-    return text.strip()
+# #     img = Image.open(img_path)
+# #     prompt = PROMPTS[img_type]
 
-# ==== MAIN STORAGE ====
-# final_data = {}
+# #     # Send to Gemini
+# #     response = model.generate_content([prompt, img])
 
-# # ==== MAIN LOOP ====
-# for img_path in input_dir.glob("*.jpg"):
-#     img_type = None
-#     for keyword, type_key in TYPE_KEYWORDS.items():
-#         if keyword in img_path.stem.lower():
-#             img_type = type_key
-#             break
+# #     # Clean and parse
+# #     clean_text = clean_json_text(response.text)
+# #     try:
+# #         data = json.loads(clean_text)
+# #     except json.JSONDecodeError:
+# #         print(f"⚠ Could not parse JSON for {img_path.name}, saving raw text instead.")
+# #         data = clean_text
 
-#     if img_type is None:
-#         print(f"⚠ No matching prompt for {img_path.name}, skipping.")
-#         continue
+# #     # Store in final dictionary
+# #     final_data[img_type] = data
 
-#     print(f"🔍 Processing {img_path.name} as {img_type}")
+# # # ==== SAVE SINGLE JSON ====
+# # with open(output_json, "w", encoding="utf-8") as f:
+# #     json.dump(final_data, f, ensure_ascii=False, indent=2)
 
-#     img = Image.open(img_path)
-#     prompt = PROMPTS[img_type]
+# # print(f"✅ All results saved in → {output_json}")
+# def processExamImages(crop_paths):
+#     """
+#     crop_paths: str (single file path) OR list of file paths for cropped sections.
+#     Returns: list of dicts, each with only name, register number, and CAT marks.
+#     """
+#     if isinstance(crop_paths, str):
+#         crop_paths = [crop_paths]
 
-#     # Send to Gemini
-#     response = model.generate_content([prompt, img])
+#     results = []               # list of students
+#     current_student = None     # dict for one student
 
-#     # Clean and parse
-#     clean_text = clean_json_text(response.text)
-#     try:
-#         data = json.loads(clean_text)
-#     except json.JSONDecodeError:
-#         print(f"⚠ Could not parse JSON for {img_path.name}, saving raw text instead.")
-#         data = clean_text
+#     for img_path in crop_paths:
+#         img_type = None
+#         for keyword, type_key in TYPE_KEYWORDS.items():
+#             if keyword in img_path.lower():
+#                 img_type = type_key
+#                 break
 
-#     # Store in final dictionary
-#     final_data[img_type] = data
+#         if img_type is None:
+#             print(f"⚠ No matching prompt for {img_path}, skipping.")
+#             continue
 
-# # ==== SAVE SINGLE JSON ====
-# with open(output_json, "w", encoding="utf-8") as f:
-#     json.dump(final_data, f, ensure_ascii=False, indent=2)
+#         img = Image.open(img_path)
+#         prompt = PROMPTS[img_type]
+#         response = model.generate_content([prompt, img])
+#         clean_text = clean_json_text(response.text)
 
-# print(f"✅ All results saved in → {output_json}")
+#         try:
+#             data = json.loads(clean_text)
+#         except json.JSONDecodeError:
+#             data = clean_text
 
-def processExamImages(crop_paths):
-    """
-    crop_paths: str (single file path) OR list of file paths for cropped sections.
-    Returns: dict with only name, register number, and CAT marks.
+#         # If it's a new student details box → start a fresh record
+#         if img_type == "studentdetailsbox" and isinstance(data, dict):
+#             # Save previous student record before starting a new one
+#             if current_student:
+#                 results.append(current_student)
 
-    """
-    # Ensure input is always a list
-    if isinstance(crop_paths, str):
-        crop_paths = [crop_paths]
+#             current_student = {
+#                 "Name": data.get("name", "unknown"),
+#                 "registerno": data.get("register_number", "unknown"),
+#                 "marks": {}
+#             }
 
-    exam_result = {"Name": None, "registerno": None, "marks": {}}
-    print("processing")
+#         elif img_type == "catmarkbox" and isinstance(data, list):
+#             if current_student is None:
+#                 # if no student details found yet, create placeholder
+#                 current_student = {"Name": "unknown", "registerno": "unknown", "marks": {}}
 
-    for img_path in crop_paths:
-        img_type = None
-        for keyword, type_key in TYPE_KEYWORDS.items():
-            if keyword in img_path.lower():
-                img_type = type_key
-                break
+#             clean_marks = {}
+#             for item in data:
+#                 qn = item.get("question_number")
+#                 marks = item.get("marks_obtained")
+#                 if qn is not None and marks is not None:
+#                     clean_marks[str(qn)] = marks
+#             current_student["marks"].update(clean_marks)
 
-        if img_type is None:
-            print(f"⚠ No matching prompt for {img_path}, skipping.")
-            continue
+#     # Add the last student record
+#     if current_student:
+#         results.append(current_student)
 
-        img = Image.open(img_path)
-        prompt = PROMPTS[img_type]
-        response = model.generate_content([prompt, img])
-        clean_text = clean_json_text(response.text)
-        print(img_type)
-        try:
-            data = json.loads(clean_text)
-        except json.JSONDecodeError:
-            data = clean_text
-
-        # Extract only what we need
-        if img_type == "studentdetailsbox" and isinstance(data, dict):
-            exam_result["Name"] = data.get("name", "unknown")
-            exam_result["registerno"] = data.get("register_number", "unknown")
-
-        elif img_type == "catmarkbox" and isinstance(data, list):
-            print(data)
-            clean_marks = {}
-            for item in data:
-                qn = item.get("question_number")
-                marks = item.get("marks_obtained")
-                # Only keep valid numeric questions
-                if qn is not None and marks is not None:
-                    clean_marks[str(qn)] = marks
-            exam_result["marks"].update(clean_marks)
-
-    return exam_result
+#     return results
 
 
-if __name__ == "__main__":
-    result = processExamImages([
-        "my_crops/aadesh_student_details_box.jpg",
-        "my_crops/aadesh_cat_mark_box.jpg",
-        "my_crops/aadesh_model_mark_box.jpg",
-        "my_crops/aadesh_total_mark_box.jpg"
-    ])
-    print(json.dumps(result, indent=2))
+# def group_crops_by_student(crop_paths):
+#     """
+#     Groups random-ordered crop paths by student name.
+#     Example: [abinaya_cat.jpg, abinaya_student.jpg, abirami_cat.jpg, abirami_total.jpg]
+#     -> { "abinayasi": [...4 imgs...], "abirami": [...4 imgs...] }
+#     """
+#     grouped = defaultdict(list)
+
+    
+      
+#     # student name = everything before first "_"
+#     base_name = Path(crop_paths).stem
+#     student_name = base_name.split("_")[0]
+#     print(student_name)
+#     grouped[student_name].append(crop_paths)
+
+#     return grouped
+
+
+
+
+# def preprocess_results(raw_results):
+#     """
+#     raw_results = list of dicts like your example
+#     Returns a clean merged dict for each student
+#     """
+#     merged = defaultdict(lambda: {"Name": "unknown", "registerno": "unknown", "marks": {}})
+
+#     for entry in raw_results:
+#         for student, records in entry.items():
+#             for record in records:
+#                 # Merge name & registerno if available
+#                 if record.get("Name") and record["Name"] != "unknown":
+#                     merged[student]["Name"] = record["Name"]
+#                 if record.get("registerno") and record["registerno"] != "unknown":
+#                     merged[student]["registerno"] = record["registerno"]
+
+#                 # Merge marks
+#                 merged[student]["marks"].update(record.get("marks", {}))
+
+#     # Convert defaultdict back to normal dict
+#     return dict(merged)
+
+
+
+# def processAllCrops(crop_paths):
+#     grouped = group_crops_by_student(crop_paths)
+#     results = {}
+
+#     for student, paths in grouped.items():
+#         results[student] = processExamImages(paths)  # reuse your function
+
+
+#     processed_r=preprocess_results(results)
+#     return processed_r
+
+
+
+
+# # if __name__ == "__main__":
+# #     result = processExamImages([
+# #         "my_crops/aadesh_student_details_box.jpg",
+# #         "my_crops/aadesh_cat_mark_box.jpg",
+# #         "my_crops/aadesh_model_mark_box.jpg",
+# #         "my_crops/aadesh_total_mark_box.jpg"
+# #     ])
+# #     print(json.dumps(result, indent=2))
