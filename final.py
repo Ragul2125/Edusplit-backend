@@ -8,20 +8,27 @@ import re
 import google.generativeai as genai
 import tempfile
 import os
-from flask_cors import CORS
 
-# ==== FLASK APP ====
-app = Flask(__name__)
+import torch
 
-CORS(app)
 # ==== CONFIG ====
 YOLO_MODEL_PATH = "finetunedYolo.pt"
 GEMINI_API_KEY = "AIzaSyBUNiKT6DGuEpIJBBLuj3NNVedb061EEsg"
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Load YOLO model once
-yolo_model = YOLO(YOLO_MODEL_PATH)
+# yolo_model = YOLO(YOLO_MODEL_PATH)
+yolo_model =  YOLO(YOLO_MODEL_PATH) 
 gemini_model = genai.GenerativeModel(model_name="gemini-2.5-flash")
+
+
+print(torch.cuda.is_available())  
+
+# This gives the current device name
+print(torch.cuda.get_device_name(0))
+
+# This shows the model’s device
+print(next(yolo_model.model.parameters()).device)
 
 # ==== PROMPTS ====
 PROMPTS = {
@@ -146,36 +153,27 @@ def process_single_image(image_path: str):
 
     return output_data
 
+# ==== FLASK APP ====
+app = Flask(__name__)
 
-
-@app.route("/process", methods=["POST", "GET"])
+@app.route("/process", methods=["POST","GET"])
 def process_images():
-    print(vars(request))
-    if request.method == "GET":
-        return jsonify({"message": "Send a POST request with images"}), 200
+    if not request.is_json or "images" not in request.json:
+        return jsonify({"error": "JSON with 'images' list required"}), 400
 
-    # Expect multipart/form-data
-    if "images" not in request.files:
-        return jsonify({"error": "No 'images' files uploaded"}), 400
-    
-    uploaded_files = request.files.getlist("images")
-    print("file detail " , uploaded_files)
-    if not uploaded_files:
-        return jsonify({"error": "No files found in 'images'"}), 400
+    images_list = request.json["images"]
+    if not isinstance(images_list, list) or not images_list:
+        return jsonify({"error": "'images' should be a non-empty list"}), 400
 
     final_results = []
-    temp_dir = tempfile.mkdtemp()
 
-    for file in uploaded_files:
-        file_path = os.path.join(temp_dir, file.filename)
-        file.save(file_path)
-
-        if not os.path.exists(file_path):
-            final_results.append({"image": file.filename, "error": "File save failed"})
+    for img_path in images_list:
+        if not os.path.exists(img_path):
+            final_results.append({"image": img_path, "error": "File not found"})
             continue
 
-        result = process_single_image(file_path)
-        final_results.append({"image": file.filename, "data": result})
+        result = process_single_image(img_path)
+        final_results.append({"image": img_path, "data": result})
 
     return jsonify({"results": final_results})
 

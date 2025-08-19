@@ -8,7 +8,7 @@ model = YOLO("finetunedYolo.pt")
 # Define path to the image file
 # source = "data/gokul.jpg"
 
-os.makedirs("cropedImages", exist_ok=True)
+os.makedirs("my_crops", exist_ok=True)
 
 # results = model.predict(source=source)
 
@@ -23,7 +23,7 @@ def splitContent(source:str):
         results= model.predict(source=source)
         base_name = Path(source).stem
         saved_classes = set()# track class names that have been saved
-
+        save_path=[]
         for i, result in enumerate(results):
             for j, box in enumerate(result.boxes.xyxy):
                 x1, y1, x2, y2 = map(int, box)
@@ -43,9 +43,10 @@ def splitContent(source:str):
                     cv2.imwrite(crop_path, crop)
                     saved_classes.add(class_name_clean)
                     print(f"Saved: {crop_path}")
+                    save_path.append(crop_path)
 
-            
-        return crop_path
+        print("cropPath:",save_path)
+        return save_path
     except Exception:
         return "Error"
 

@@ -154,13 +154,15 @@ def clean_json_text(text: str) -> str:
 
 # print(f"✅ All results saved in → {output_json}")
 
-
-
 def processExamImages(crop_paths):
     """
-    crop_paths: list of file paths for one exam's 4 cropped sections.
+    crop_paths: str (single file path) OR list of file paths for cropped sections.
     Returns: dict with results grouped for that exam.
     """
+    # Ensure input is always a list
+    if isinstance(crop_paths, str):
+        crop_paths = [crop_paths]
+
     exam_result = {}
     for img_path in crop_paths:
         img_type = None

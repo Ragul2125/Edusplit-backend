@@ -1,0 +1,179 @@
+{
+  "catmarkbox": [
+    {
+      "question_number": 1,
+      "marks_obtained": 2,
+      "text": "overwritten"
+    },
+    {
+      "question_number": 2,
+      "marks_obtained": 1,
+      "text": "normal"
+    },
+    {
+      "question_number": 3,
+      "marks_obtained": 1,
+      "text": "normal"
+    },
+    {
+      "question_number": 4,
+      "marks_obtained": 1,
+      "text": "normal"
+    },
+    {
+      "question_number": 5,
+      "marks_obtained": 2,
+      "text": "normal"
+    },
+    {
+      "question_number": 6,
+      "marks_obtained": 3,
+      "text": "normal"
+    },
+    {
+      "question_number": 7,
+      "marks_obtained": 3,
+      "text": "normal"
+    },
+    {
+      "question_number": 8,
+      "marks_obtained": 3,
+      "text": "normal"
+    },
+    {
+      "question_number": 9,
+      "marks_obtained": 3,
+      "text": "normal"
+    },
+    {
+      "question_number": 10,
+      "marks_obtained": 7,
+      "text": "normal"
+    },
+    {
+      "question_number": 11,
+      "marks_obtained": 7,
+      "text": "normal"
+    },
+    {
+      "question_number": 12,
+      "marks_obtained": 0,
+      "text": "normal"
+    }
+  ],
+  "modelmarkbox": [
+    {
+      "question_number": 1,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 2,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 3,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 4,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 5,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 6,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 7,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 8,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 9,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 10,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 11,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 12,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 13,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 14,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 15,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 16,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 17,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 18,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 19,
+      "marks_obtained": null,
+      "text": "normal"
+    },
+    {
+      "question_number": 20,
+      "marks_obtained": null,
+      "text": "normal"
+    }
+  ],
+  "studentdetailsbox": {
+    "name": "GOKUL.M",
+    "register_number": "22TLOO1",
+    "course_title": "Artificial Intelligence Applications",
+    "year": "4",
+    "semester": "7",
+    "section": "A",
+    "branch": "B.Tech IT",
+    "date": "28/7/2025"
+  },
+  "totalmarkbox": {
+    "total_marks": "66 / 100"
+  }
+}

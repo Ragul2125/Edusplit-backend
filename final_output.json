@@ -1,5 +1,569 @@
 [
   {
-    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_2c13bc89.jpg"
+    "modelmarkbox": [
+      {
+        "question_number": 1,
+        "marks_obtained": 6,
+        "text": "normal"
+      },
+      {
+        "question_number": 2,
+        "marks_obtained": 7,
+        "text": "normal"
+      },
+      {
+        "question_number": 3,
+        "marks_obtained": 8,
+        "text": "normal"
+      },
+      {
+        "question_number": 4,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 5,
+        "marks_obtained": 8,
+        "text": "normal"
+      },
+      {
+        "question_number": 6,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 7,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 8,
+        "marks_obtained": 8,
+        "text": "normal"
+      },
+      {
+        "question_number": 9,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 10,
+        "marks_obtained": 8,
+        "text": "normal"
+      },
+      {
+        "question_number": 11,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 12,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 13,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 14,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 15,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 16,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 17,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 18,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 19,
+        "marks_obtained": 9,
+        "text": "normal"
+      },
+      {
+        "question_number": 20,
+        "marks_obtained": 9,
+        "text": "normal"
+      }
+    ],
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.38_8d7d6cd9_model_mark_box.jpg"
+  },
+  {
+    "catmarkbox": [
+      {
+        "question_number": 1,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 2,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 3,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 4,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 5,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 6,
+        "marks_obtained": 3,
+        "text": "normal"
+      },
+      {
+        "question_number": 7,
+        "marks_obtained": 4,
+        "text": "normal"
+      },
+      {
+        "question_number": 8,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 9,
+        "marks_obtained": 3,
+        "text": "normal"
+      },
+      {
+        "question_number": 10,
+        "marks_obtained": 8,
+        "text": "normal"
+      },
+      {
+        "question_number": 11,
+        "marks_obtained": 5,
+        "text": "normal"
+      },
+      {
+        "question_number": 12,
+        "marks_obtained": 5,
+        "text": "overwritten"
+      }
+    ],
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.38_8d7d6cd9_cat_mark_box.jpg"
+  },
+  {
+    "totalmarkbox": {
+      "total_marks": "66 / 100"
+    },
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.38_8d7d6cd9_total_mark_box.jpg"
+  },
+  {
+    "studentdetailsbox": {
+      "name": "S.Sri Darshan",
+      "register_number": "24UAI152",
+      "course_title": "Universal Human Values-II",
+      "year": "II",
+      "semester": "III",
+      "section": null,
+      "branch": "AI&DS",
+      "date": "06/08/2025"
+    },
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.38_8d7d6cd9_student_details_box.jpg"
+  },
+  {
+    "modelmarkbox": [
+      {
+        "question_number": 1,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 2,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 3,
+        "marks_obtained": 11,
+        "text": "overwritten"
+      },
+      {
+        "question_number": 4,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 5,
+        "marks_obtained": 0,
+        "text": "overwritten"
+      },
+      {
+        "question_number": 6,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 7,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 8,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 9,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 10,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 11,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 12,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 13,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 14,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 15,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 16,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 17,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 18,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 19,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 20,
+        "marks_obtained": null,
+        "text": "normal"
+      }
+    ],
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_0aa099ef_model_mark_box.jpg"
+  },
+  {
+    "catmarkbox": [
+      {
+        "question_number": 1,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 2,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 3,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 4,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 5,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 6,
+        "marks_obtained": 4,
+        "text": "normal"
+      },
+      {
+        "question_number": 7,
+        "marks_obtained": 4,
+        "text": "normal"
+      },
+      {
+        "question_number": 8,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 9,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 10,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 11,
+        "marks_obtained": 7,
+        "text": "normal"
+      },
+      {
+        "question_number": 12,
+        "marks_obtained": null,
+        "text": "normal"
+      }
+    ],
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_0aa099ef_cat_mark_box.jpg"
+  },
+  {
+    "totalmarkbox": {
+      "total_marks": 80
+    },
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_0aa099ef_total_mark_box.jpg"
+  },
+  {
+    "studentdetailsbox": {
+      "name": "SRI RAMAN . D.",
+      "register_number": "24UAEI54",
+      "course_title": "UNIVERSAL HUMAN VALUES - II",
+      "year": "II",
+      "semester": "III",
+      "section": "B.",
+      "branch": "AL & DS.",
+      "date": "06. 08. 2025"
+    },
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_0aa099ef_student_details_box.jpg"
+  },
+  {
+    "modelmarkbox": [
+      {
+        "question_number": 1,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 2,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 3,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 4,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 5,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 6,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 7,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 8,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 9,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 10,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 11,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 12,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 13,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 14,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 15,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 16,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 17,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 18,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 19,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 20,
+        "marks_obtained": null,
+        "text": "normal"
+      }
+    ],
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_2c13bc89_model_mark_box.jpg"
+  },
+  {
+    "catmarkbox": [
+      {
+        "question_number": 1,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 2,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 3,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 4,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 5,
+        "marks_obtained": 2,
+        "text": "normal"
+      },
+      {
+        "question_number": 6,
+        "marks_obtained": 5,
+        "text": "normal"
+      },
+      {
+        "question_number": 7,
+        "marks_obtained": 5,
+        "text": "normal"
+      },
+      {
+        "question_number": 8,
+        "marks_obtained": 5,
+        "text": "normal"
+      },
+      {
+        "question_number": 9,
+        "marks_obtained": 4,
+        "text": "normal"
+      },
+      {
+        "question_number": 10,
+        "marks_obtained": 8,
+        "text": "overwritten"
+      },
+      {
+        "question_number": 11,
+        "marks_obtained": null,
+        "text": "normal"
+      },
+      {
+        "question_number": 12,
+        "marks_obtained": 8,
+        "text": "normal"
+      }
+    ],
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_2c13bc89_cat_mark_box.jpg"
+  },
+  {
+    "totalmarkbox": {
+      "total_marks": "90 / 100"
+    },
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_2c13bc89_total_mark_box.jpg"
+  },
+  {
+    "studentdetailsbox": {
+      "name": "K. SURENDAR",
+      "register_number": "24UAT158",
+      "course_title": "UNIVERSAL HUMAN VALUES -II",
+      "year": null,
+      "semester": "III",
+      "section": "B",
+      "branch": "AI & DS",
+      "date": "6/8/2025"
+    },
+    "original_image": "WhatsApp Image 2025-08-11 at 12.01.39_2c13bc89_student_details_box.jpg"
   }
 ]
