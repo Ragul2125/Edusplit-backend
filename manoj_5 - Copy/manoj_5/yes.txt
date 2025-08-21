@@ -1,0 +1,20 @@
+yes
+edit
+draft
+no
+
+
+draft - yes
+
+draft - no
+
+
+draft - edit - draft (wont work because it does not fit into the database because it has some missing columns so that the missing columns will be removed to make it work)
+
+
+
+
+
+
+
+
