@@ -114,6 +114,35 @@ CORS(app)
 
 JSON_FILE="final_output.json"
 
+
+@app.route("/excel",methods=['POST'])
+
+def store():
+
+    UPLOAD_FOLDER = "uploads"
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    # Get message
+    msg = request.form.get("msg")   # message sent as form-data
+    
+    # Get file
+    if 'file' not in request.files:
+        return jsonify({"error": "No file provided"}), 400
+    
+    file = request.files['file']
+    
+    
+      # Save file
+    filepath = os.path.join(UPLOAD_FOLDER, file.filename)
+    file.save(filepath)
+
+    return jsonify({
+        "message_received": msg,
+        "file_saved_as": filepath
+    })
+    
+
+
+
 @app.route("/upload",methods=['POST'])
 
 def upload():
