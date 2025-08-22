@@ -101,6 +101,7 @@ from yoloModule import splitContent
 from geminiModule import processExamImages
 from preprocessorModule import preprocessGeminiOutput
 from flask import Flask, request, jsonify
+from mapData import mapMarks
 import os
 import asyncio
 import json
@@ -108,19 +109,19 @@ import json
 from flask_cors import CORS
 app=Flask(__name__)
 
-
+MODE_OF_EXAM=None
 CORS(app) 
 
 
 JSON_FILE="final_output.json"
-
+EXCEL_FILE=None
 
 @app.route("/excel",methods=['POST'])
 
 def store():
 
-    UPLOAD_FOLDER = "uploads"
-    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    EXCEL_UPLOAD_FOLDER = "uploads/excel"
+    os.makedirs(EXCEL_UPLOAD_FOLDER, exist_ok=True)
     # Get message
     msg = request.form.get("msg")   # message sent as form-data
     
@@ -132,9 +133,13 @@ def store():
     
     
       # Save file
-    filepath = os.path.join(UPLOAD_FOLDER, file.filename)
-    file.save(filepath)
+    filepath = os.path.join(EXCEL_UPLOAD_FOLDER, file.filename)
+    file.save(filepath) 
+    global EXCEL_FILE
+    EXCEL_FILE=filepath
 
+    global MODE_OF_EXAM
+    MODE_OF_EXAM=msg
     return jsonify({
         "message_received": msg,
         "file_saved_as": filepath
@@ -196,7 +201,7 @@ def upload():
 
         
 
-        final_result=preprocessGeminiOutput(gemini_results)
+        final_result=preprocessGeminiOutput(gemini_results,MODE_OF_EXAM)
         final_list.append(final_result)
 
 
@@ -215,6 +220,8 @@ def upload():
 
     with open(JSON_FILE, "w", encoding="utf-8") as f:
         json.dump(final_list, f, ensure_ascii=False, indent=2)
+
+    mapMarks(EXCEL_FILE,JSON_FILE)
 
     return {"status": "success", "files_saved": len(files)}
 
